@@ -1,0 +1,111 @@
+package welcome
+
+import "github.com/harish876/portfolio/views/layout"
+
+import ()
+
+templ welcomeComponent() {
+	<!DOCTYPE html>
+	<html lang="en" class="dark">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<meta
+				name="description"
+				content="Go/Echo+Templ: Some Exploration for GO HTMX and Templ"
+			/>
+			<meta name="google" content="notranslate"/>
+			<link rel="shortcut icon" href="/img/templ.png" type="image/png"/>
+			<link rel="stylesheet" href="/css/styles.css"/>
+
+		</head>
+		<body hx-boost="true" class="dark:bg-terminal-base font-mono bg-terminal-base text-white leading-normal tracking-tighter">
+		<layout class="w-full h-dvh flex flex-col">
+
+        <header class="bg-primary flex justify-between items-center py-1 px-4">
+            <div class="flex space-x-4">
+                <a href="#" class="text-white font-bold tracking-tight">home</a>
+                <a href="#" class="text-white">readme</a>
+                <a href="#" class="text-white">blog</a>
+            </div>
+            <div class="flex items-center space-x-2">
+                <span class="text-white btn btn-ghost btn-xs">LinkedIn</span>
+                <span class="text-white btn btn-ghost btn-xs">Github</span>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="flex-grow py-6 my-8">
+            <pre class="text-white flex flex-col gap-4">
+			<div tabindex="0" number="1" class="group flex h-8 items-center hover:bg-terminal-hover selection:bg-orange active:border-primary-400 active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none">
+				<span class="text-gray-500 px-4"># use the command below to order your delicious 12oz bag of Nil Blend coffee</span>
+			</div>
+			<div tabindex="0" number="2" class="group flex h-8 items-center hover:bg-terminal-hover selection:bg-orange active:border-primary-400  active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none">
+				<span class="px-4">harish gokul</span>
+			</div>
+			<div tabindex="0" number="3" class="group flex h-8 items-center hover:bg-terminal-hover selection:bg-orange active:border-primary-400  active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none">
+				<span class="text-gray-500 px-4">cat ~/.ssh/known_hosts</span>
+			</div>
+			<div tabindex="0" number="4" class="group flex h-8 items-center hover:bg-terminal-hover selection:bg-orange active:border-primary-400  active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none">
+				<span class="text-gray-500 px-4">terminal.shop ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEzsOgEiuiTQEUiZnMORrmhMHDSAo8VBU1/g55Ec6ZaKM</span>
+			</div>
+			<div tabindex="0" number="5" class="group flex h-8 items-center hover:bg-terminal-hover selection:bg-orange active:border-primary-400  active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none">
+				<span class="text-gray-500 px-4"># sign up for updates, enter your email address below...</span>
+			</div>
+			<div 
+				tabindex="0" 
+				number="5" 
+				class="group flex h-8 items-center hover:bg-terminal-hover selection:bg-orange active:border-primary-400 active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none">
+				
+				// <div class="bg-primary-400 w-[2px] h-[30px] shrink-0 animate-blink"></div>
+				
+				<form post>
+					<input 
+						id="commandBox"
+						type="text" 
+						autocomplete="off"
+						placeholder="$ enter commands here"
+						class="px-4 border-none focus:ring-transparent text-white leading-tight bg-transparent"
+					/>
+				</form>
+			</div>
+			</pre>
+        	</div>
+			
+			<footer class="bg-primary flex justify-between items-center">
+				<span id="currentText" class="bg-secondary-500 text-white px-2 text-sm">home.txt</span>
+				<span id="errorText" class="bg-error-base text-white px-2 text-sm">Errors</span>
+			</footer>
+		
+		</layout>
+			<script lang="js">
+			     document.body.addEventListener('htmx:beforeSwap', function(evt) {
+			    if(evt.detail.xhr.status === 404){
+			        // alert the user when a 404 occurs (maybe use a nicer mechanism than alert())
+			        alert("Error: Could Not Find Resource");
+			    } else if(evt.detail.xhr.status === 422){
+			        // allow 422 responses to swap as we are using this as a signal that
+			        // a form was submitted with bad data and want to rerender with the
+			        // errors
+			        //
+			        // set isError to false to avoid error logging in console
+                    alert("Bad Request Debug")
+			        evt.detail.shouldSwap = true;
+			        evt.detail.isError = false;
+			    } else if(evt.detail.xhr.status === 418){
+			        // if the response code 418 (I'm a teapot) is returned, retarget the
+			        // content of the response to the element with the id `teapot`s
+			        evt.detail.shouldSwap = true;
+			        evt.detail.target = htmx.find("#teapot");
+			    }
+			});
+			</script>
+		</body>
+	</html>
+}
+
+templ Welcome() {
+	@layout.Base("Harish Portfolio"){
+		@welcomeComponent()
+	}
+}
