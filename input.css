@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 
+@layer base {
+      body {
+        @apply bg-terminal-base;
+      }
+}
+
 @keyframes blink {
     0%,25%,to {
         opacity: 1

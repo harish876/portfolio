@@ -11,3 +11,9 @@ func RegisterProjectRoutes(e *echo.Echo) {
 
 	apiGroup.GET("", handlers.ProjectHandler)
 }
+
+func RegisterProjectApiRoutes(e *echo.Echo) {
+	apiGroup := e.Group("/api/v1")
+
+	apiGroup.GET("/projects", handlers.GetProjectsDataFromGithub)
+}

@@ -43,7 +43,8 @@ func CommandHandler(c echo.Context) error {
 	case ABOUT:
 		return Render(c, http.StatusOK, about.About())
 	case PROJECT, PROJECTS:
-		return Render(c, http.StatusOK, project.Project())
+		data, _ := GetProjectsDataFromGithubHandler()
+		return Render(c, http.StatusOK, project.Project(data))
 	case HELP:
 		return Render(c, http.StatusOK, help.Help(HELP_OPTIONS))
 	default:
