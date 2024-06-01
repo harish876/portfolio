@@ -1,0 +1,15 @@
+package notfound
+
+import "github.com/harish876/portfolio/views/layout"
+
+templ notFound() {
+	<section class="dark">
+		Not Found
+	</section>
+}
+
+templ NotFound() {
+	@layout.Base("Not Found"){
+		@notFound()
+	}
+}

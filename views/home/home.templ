@@ -1,0 +1,55 @@
+package home
+
+import "github.com/harish876/portfolio/views/layout"
+
+//TODO: use arrow keys to navigate up and down these options. Add ASCII art
+templ HomeComponent() {
+	<div class="flex flex-col justify-end h-full">
+    <div id="commandDisplay" class="flex-grow py-6 my-4">
+            <pre class="text-white flex flex-col gap-4">
+			<div tabindex="0" number="1" class="group flex h-8 items-center hover:bg-terminal-hover hover:border-primary-400 hover:border-l-2 active:border-primary-400  active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none">
+				<span class="px-4">1. hi my name harish gokul. this is my vs code themed vim editor (ikik)</span>
+			</div>
+			<div tabindex="0" number="2" class="group flex h-8 items-center hover:bg-terminal-hover hover:border-primary-400 hover:border-l-2 active:border-primary-400 active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none">
+				<span class="text-gray-500 px-4">2. # hit "i" to get into insert mode.</span>
+			</div>
+			<div tabindex="0" number="3" class="group flex h-8 items-center hover:bg-terminal-hover hover:border-primary-400 hover:border-l-2 active:border-primary-400  active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none">
+				<span class="text-gray-500 px-4">3. # type "man" to open the friendly manual for navigation options without a mouse</span>
+			</div>
+			<div tabindex="0" number="4" class="group flex h-8 items-center hover:bg-terminal-hover hover:border-primary-400 hover:border-l-2 active:border-primary-400  active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none">
+				<span class="text-gray-500 px-4">4. # use "help" to list out all options</span>
+			</div>
+			<a href="https://github.com/harish876/hypefx" target="_blank" tabindex="0" number="5" class="group flex h-8 items-center hover:bg-terminal-hover hover:border-primary-400 hover:border-l-2 active:border-primary-400  active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none [&>svg]:hover:block [&>svg]:active:text-gray-11">
+				<span class="text-gray-500 px-4">5. # this was project was built using go and htmx and uses this repo</span>
+				<svg class="hidden w-5 h-5 ml-6 text-gray-10 shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="square-arrow-top-right, open, new, link, open link, box, arrow"><path class="stroke-current" d="M15.2083 11.6667V16.875H3.125V4.79167H7.70833M11.4583 3.125H16.875V8.54167M9.16667 10.8333L16.25 3.75" stroke-width="1.5" stroke-linecap="square"></path></g></svg>
+			</a>
+			</pre>
+        </div>
+
+		<div 
+			class="py-8 group flex h-8 items-center hover:bg-terminal-hover">	
+			<div class="bg-primary-400 w-[2px] h-[30px] shrink-0 animate-blink"></div>
+			<form 
+				hx-post="/commands"
+				hx-target="#commandDisplay"			
+				hx-swap="innerHTML transition:true"	
+				hx-on::after-request="this.reset()"	
+				>
+				<input 
+						name="command"
+						id="commandBox"
+						type="text" 
+						autocomplete="off"
+						placeholder="$ enter command here"
+						class="px-4 border-none focus:ring-transparent text-white leading-tight bg-transparent"
+					/>
+				</form>
+		</div>
+	</div>
+}
+
+templ Home() {
+	@layout.Base("Harish Gokul Home Page"){
+		@HomeComponent()
+	}
+}

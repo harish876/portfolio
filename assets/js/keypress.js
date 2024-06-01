@@ -6,6 +6,7 @@ let firstKey = ""
 let currentWindowLocation = handleCurrentLocation(window.location)
 
 // TODO: Refactor this logic. Remove messy if cases
+// DOM manipulation is little tricky, each compoent affects the other
 
 document.addEventListener('keydown', function(event) {
     currentWindowLocation = handleCurrentLocation(window.location)
@@ -15,7 +16,11 @@ document.addEventListener('keydown', function(event) {
     
     if(keyPressed == "Escape" && mode == "i"){
         mode = ""
-        document.getElementById("commandBox").blur()
+        let commandBox = document.getElementById("commandBox")
+        if(commandBox){
+            document.getElementById("commandBox").blur()
+        }
+        console.log(currentWindowLocation)
         outputDiv.innerHTML = displayPathFormatter(currentWindowLocation.page)
         return
     }
@@ -29,7 +34,10 @@ document.addEventListener('keydown', function(event) {
     if(keyPressed == "i"){
         mode = keyPressed
         event.preventDefault()
-        document.getElementById("commandBox").focus()
+        let commandBox = document.getElementById("commandBox")
+        if(commandBox){
+            document.getElementById("commandBox").focus()
+        }
         outputDiv.innerHTML = "insert mode"
         console.log("Mode is: ",mode)
     }

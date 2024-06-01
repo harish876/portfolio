@@ -12,6 +12,9 @@ func main() {
 	app.Static("/", "assets")
 
 	app.HTTPErrorHandler = handlers.NotFoundErrorHandler
-	routes.RegisterWelcomeRoutes(app)
-	app.Logger.Fatal(app.Start(":42070"))
+	routes.RegisterHomeRoutes(app)
+	routes.RegisterAboutRoutes(app)
+	routes.RegisterCommandRoutes(app)
+	routes.RegisterProjectRoutes(app)
+	app.Logger.Fatal(app.Start(":42069"))
 }
