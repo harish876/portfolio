@@ -1,31 +1,21 @@
-FROM golang:alpine AS builder
+#Dockerfile specifically for render
+FROM golang:1.22-alpine as builder
+RUN apk --update add build-base
 
-# Set the current working directory inside the container
-WORKDIR /app
-
-# Copy the Go modules manifests
-COPY go.mod ./
-COPY go.sum ./
-
-# Download dependencies
+WORKDIR /src/app
+ADD go.mod .
 RUN go mod download
 
-# Copy the source code into the container
-COPY . .
+ADD . .
+RUN go run ./cmd/build
 
-# Build the Go app
-RUN go build -o app ./cmd/main.go
+FROM alpine
+RUN apk add --no-cache tzdata ca-certificates
+WORKDIR /bin/
 
-# Start a new stage from scratch
-FROM alpine:latest
-
-# Set the current working directory inside the container
-WORKDIR /app
-
-# Copy the executable file from the builder stage
-COPY --from=builder /app/ .
+# Copying binaries
+COPY --from=builder /src/app/bin/app .
 
 EXPOSE 42069
 
-# Command to run the executable
-CMD ["./app"]
+CMD /bin/app
