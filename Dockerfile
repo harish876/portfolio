@@ -5,7 +5,7 @@ WORKDIR /app
 
 # Copy the Go modules manifests
 COPY go.mod ./
-COPY go.sum
+COPY go.sum ./
 
 # Download dependencies
 RUN go mod tidy && go mod download
