@@ -160,7 +160,7 @@ func Project(data *models.PinnedItems) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div><span id=\"currentText\" hx-swap-oob=\"true\" class=\"bg-secondary-500 text-white px-2 text-sm\">project.txt</span>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
