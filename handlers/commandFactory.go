@@ -40,7 +40,7 @@ func CommandHandler(c echo.Context) error {
 	command = strings.ToLower(command)
 	switch command {
 	case HOME:
-		return Render(c, http.StatusOK, home.Home())
+		return Render(c, http.StatusOK, home.HomeComponent())
 	case README:
 		return Render(c, http.StatusOK, about.About())
 	case PROJECT, PROJECTS:
