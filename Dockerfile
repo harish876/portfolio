@@ -5,16 +5,15 @@ WORKDIR /app
 
 # Copy the Go modules manifests
 COPY go.mod ./
-COPY go.sum ./
 
 # Download dependencies
-RUN go mod download
+RUN go mod tidy && go mod download
 
 # Copy the source code into the container
 COPY . .
 
 # Build the Go app
-RUN go build -o app ./cmd/main.go
+RUN go build -v -o app ./cmd/main.go
 
 # Start a new stage from scratch
 FROM alpine:latest
@@ -28,4 +27,4 @@ COPY --from=builder /app/ .
 EXPOSE 42069
 
 # Command to run the executable
-CMD ["./app"]
+ENTRYPOINT ["./app"]
