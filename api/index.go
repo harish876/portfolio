@@ -30,5 +30,6 @@ func Init() *echo.Echo {
 
 func Handler(w http.ResponseWriter, r *http.Request) {
 	app := Init()
-	app.Logger.Fatal(app.Start(":42069"))
+	app.ServeHTTP(w, r)
+	// app.Logger.Fatal(app.Start(":42069"))
 }
