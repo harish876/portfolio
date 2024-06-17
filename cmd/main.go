@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 
 	"github.com/harish876/portfolio/handlers"
@@ -13,19 +14,17 @@ import (
 
 func main() {
 	if _, err := utils.GetEnv(); err != nil {
-		fmt.Println(err)
+		slog.Error("Unable to load .env file", err)
 	}
 
 	app := echo.New()
+	slog.New(slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{
+		AddSource: true,
+		Level:     slog.LevelDebug,
+	}))
 	app.Static("/", "assets")
 
 	app.HTTPErrorHandler = handlers.NotFoundErrorHandler
 	routes.RegisterRoutes(app)
-	// routes.RegisterHomeRoutes(app)
-	// routes.RegisterAboutRoutes(app)
-	// routes.RegisterCommandRoutes(app)
-	// routes.RegisterProjectRoutes(app)
-	// routes.RegisterProjectApiRoutes(app)
-
 	app.Logger.Fatal(app.Start(fmt.Sprintf(":%s", os.Getenv("PORT"))))
 }

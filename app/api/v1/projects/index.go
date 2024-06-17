@@ -4,7 +4,9 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"log/slog"
 	"net/http"
+	"os"
 
 	"github.com/harish876/portfolio/models"
 	"github.com/harish876/portfolio/utils"
@@ -15,9 +17,14 @@ import (
 func GetProjectsDataFromGithubHandler() (*models.PinnedItems, error) {
 	client := graphql.NewClient("https://api.github.com/graphql")
 	envVars, err := utils.GetEnv()
-	if err != nil {
-		return nil, err
+	var githubToken string
+	if err != nil || envVars == nil {
+		githubToken = os.Getenv("GITHUB_ACCESS_TOKEN")
+	} else {
+		githubToken = envVars.GithubAccessToken
 	}
+
+	slog.Debug("GetProjectsDataFromGithubHandler", "github token", githubToken)
 
 	req := graphql.NewRequest(`
         query getData($name: String!, $pinned: Int!, $languages: Int!) {
@@ -54,7 +61,7 @@ func GetProjectsDataFromGithubHandler() (*models.PinnedItems, error) {
 	req.Var("languages", 2)
 
 	req.Header.Set("Cache-Control", "no-cache")
-	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", envVars.GithubAccessToken))
+	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", githubToken))
 
 	ctx := context.Background()
 
