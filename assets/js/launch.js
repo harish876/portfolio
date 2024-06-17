@@ -1,7 +1,7 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('form');
-    const message = document.getElementById('message');
+import KeyPressController from "./keypress.js";
 
-    form.addEventListener('submit', handleSubmit, false);
-    message.addEventListener('keypress', handleEnter, false);
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("is this called only once")
+    const keyPressController  = new KeyPressController()
+    document.addEventListener('keydown',keyPressController.handleNavigation);
 }, false);

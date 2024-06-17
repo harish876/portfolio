@@ -1,9 +1,11 @@
-package handlers
+package commands
 
 import (
 	"net/http"
 	"strings"
 
+	"github.com/harish876/portfolio/app"
+	api_projects "github.com/harish876/portfolio/app/api/v1/projects"
 	"github.com/harish876/portfolio/models"
 	"github.com/harish876/portfolio/views/about"
 	"github.com/harish876/portfolio/views/help"
@@ -35,20 +37,21 @@ var (
 	}
 )
 
+// @post
 func CommandHandler(c echo.Context) error {
 	command := c.FormValue("command")
 	command = strings.ToLower(command)
 	switch command {
 	case HOME:
-		return Render(c, http.StatusOK, home.HomeComponent())
+		return app.Render(c, http.StatusOK, home.HomeComponent())
 	case README:
-		return Render(c, http.StatusOK, about.About())
+		return app.Render(c, http.StatusOK, about.About())
 	case PROJECT, PROJECTS:
-		data, _ := GetProjectsDataFromGithubHandler()
-		return Render(c, http.StatusOK, project.Project(data))
+		data, _ := api_projects.GetProjectsDataFromGithubHandler()
+		return app.Render(c, http.StatusOK, project.Project(data))
 	case HELP:
-		return Render(c, http.StatusOK, help.Help(HELP_OPTIONS))
+		return app.Render(c, http.StatusOK, help.Help(HELP_OPTIONS))
 	default:
-		return Render(c, http.StatusOK, home.HomeComponent())
+		return app.Render(c, http.StatusOK, home.HomeComponent())
 	}
 }

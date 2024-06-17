@@ -14,7 +14,7 @@ RUN go mod tidy && go mod download
 COPY . .
 
 # Build the Go app
-RUN go build -v -o app ./cmd/main.go
+RUN go build -v -o main ./cmd/main.go
 
 # Start a new stage from scratch
 FROM alpine:latest
@@ -29,4 +29,4 @@ ENV PORT 8080
 EXPOSE $PORT
 
 # Command to run the executable
-ENTRYPOINT ["./app"]
+ENTRYPOINT ["./main"]

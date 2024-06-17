@@ -20,11 +20,12 @@ func main() {
 	app.Static("/", "assets")
 
 	app.HTTPErrorHandler = handlers.NotFoundErrorHandler
-	routes.RegisterHomeRoutes(app)
-	routes.RegisterAboutRoutes(app)
-	routes.RegisterCommandRoutes(app)
-	routes.RegisterProjectRoutes(app)
-	routes.RegisterProjectApiRoutes(app)
+	routes.RegisterRoutes(app)
+	// routes.RegisterHomeRoutes(app)
+	// routes.RegisterAboutRoutes(app)
+	// routes.RegisterCommandRoutes(app)
+	// routes.RegisterProjectRoutes(app)
+	// routes.RegisterProjectApiRoutes(app)
 
 	app.Logger.Fatal(app.Start(fmt.Sprintf(":%s", os.Getenv("PORT"))))
 }
