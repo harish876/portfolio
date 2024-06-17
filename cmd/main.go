@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/harish876/portfolio/handlers"
 	"github.com/harish876/portfolio/routes"
@@ -25,5 +26,5 @@ func main() {
 	routes.RegisterProjectRoutes(app)
 	routes.RegisterProjectApiRoutes(app)
 
-	app.Logger.Fatal(app.Start(":42069"))
+	app.Logger.Fatal(app.Start(fmt.Sprintf(":%s", os.Getenv("PORT"))))
 }
