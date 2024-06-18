@@ -26,5 +26,5 @@ func main() {
 
 	app.HTTPErrorHandler = handlers.NotFoundErrorHandler
 	routes.RegisterRoutes(app)
-	app.Logger.Fatal(app.Start(fmt.Sprintf(":%s", os.Getenv("PORT"))))
+	app.Logger.Fatal(app.Start(fmt.Sprintf(":%s", "42069" /*(os.Getenv("PORT")*/)))
 }

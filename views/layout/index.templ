@@ -31,53 +31,61 @@ templ Base(title string) {
 			<script type="module" src="/js/launch.js"></script>
 		</head>
 		<body hx-boost="true" class="dark:bg-terminal-base font-mono bg-terminal-base text-white leading-normal tracking-tighter">
-			<layout class="w-full h-screen flex flex-col">
-			//Todo: refactor to a nav compoent
-			<header class="bg-primary flex justify-between items-center py-1 px-4">
-            	<div class="flex space-x-4">
-					//fix this home link
-                	<button hx-get="/" hx-target="body" hx-swap="transition:true" class="text-white font-bold tracking-tight">home</button>
-                	<button hx-get="/about" hx-target="#commandDisplay" hx-swap="transition:true" class="text-white">readme</button>
-                	<button hx-get="/project" hx-target="#commandDisplay" hx-swap="transition:true" class="text-white">projects</button>
-                	<button hx-get="/blog" hx-target="#commandDisplay" hx-swap="transition:true" class="text-white" disabled>blog <span class="text-xs">(coming soon)</span></button>
-            	</div>
-            		<div class="flex items-center space-x-2">
-                		<span class="text-white btn btn-ghost btn-xs">LinkedIn</span>
-                		<span class="text-white btn btn-ghost btn-xs">Github</span>
-            		</div>
-        	</header>
-				
-				<div id="commandDisplay" class="flex flex-col h-screen flex-grow py-6 mt-4">
+			<layout id="layout" class="w-full h-screen flex flex-col">
+				<header class="bg-primary flex justify-between items-center py-1 px-4">
+					<div class="flex space-x-4">
+						//fix this home link
+						<button hx-post="/commands" hx-target="#commandDisplay" hx-swap="innerHTML transition:true" class="text-white font-bold tracking-tight btn btn-ghost btn-sm  hover:bg-primary-400 ">home</button>
+						<button hx-get="/about" hx-target="#commandDisplay" hx-swap="transition:true" class="text-white btn btn-ghost btn-sm  hover:bg-primary-400">readme</button>
+						<button hx-get="/project" hx-indicator="#spinner" hx-target="#commandDisplay" hx-swap="transition:true" class="text-white btn btn-ghost btn-sm  hover:bg-primary-400">
+							projects
+						</button>
+						<button hx-get="/blog" hx-indicator="#spinner" hx-target="#commandDisplay" hx-swap="transition:true" class="text-white disabled">blog <span class="text-xs">(coming soon)</span></button>
+					</div>
+					<div class="flex items-center space-x-2">
+						<a href="https://www.linkedin.com/in/harish-gokul-39432718b/" class="text-white btn btn-ghost btn-xs">LinkedIn</a>
+						<a href="https://github.com/harish876" class="text-white btn btn-ghost btn-xs">Github</a>
+					</div>
+				</header>
+				<div id="commandDisplay" class="flex flex-col h-screen flex-grow mt-4 px-4 py-8">
 					{ children... }
 				</div>
-
-			<div 
-				class="py-8 group flex h-8 items-center hover:bg-terminal-hover">	
-				<div class="bg-primary-400 w-[2px] h-[30px] shrink-0 animate-blink"></div>
-				<form 
-					hx-post="/commands"
-					hx-target="#commandDisplay"			
-					hx-swap="innerHTML transition:true"	
-					hx-on::after-request="this.reset()"	>
-						<input 
+				<div
+					class="py-8 group flex h-8 items-center hover:bg-terminal-hover"
+				>
+					<div class="bg-primary-400 w-[2px] h-[30px] shrink-0 animate-blink"></div>
+					<form
+						hx-post="/commands"
+						hx-indicator="#spinner"
+						hx-target="#commandDisplay"
+						hx-swap="innerHTML transition:true"
+						hx-on::after-request="this.reset()"
+					>
+						<input
 							name="command"
 							id="commandBox"
-							type="text" 
+							type="text"
 							autocomplete="off"
 							placeholder="$ enter command here"
 							class="px-4 border-none focus:ring-transparent text-white leading-tight bg-transparent"
 						/>
 					</form>
 				</div>
-
 				//Todo: refactor to a footer component
-				<footer class="bg-primary flex justify-between items-center">
-					<span id="currentText" hx-swap-oob="true" class="bg-secondary-500 text-white px-2 text-sm">home.txt</span>
-					<span id="errorText" class="bg-error-base text-white px-2 text-sm">Errors</span>
+				<footer class="bg-primary flex flex-row justify-between items-center">
+					<div class="flex flex-row space-x-4">
+						<span id="currentText" hx-swap-oob="true" class="bg-secondary-500 text-white px-2 text-sm">home.txt</span>
+						<span id="spinner" class="loading loading-infinity loading-sm htmx-indicator"></span>
+					</div>
+					<div class="flex flex-row space-x-4">
+						<span id="tabSize" class="text-white px-2 text-sm hover:bg-primary-400 cursor-pointer">Ln 81, Col 122</span>
+						<span class="text-white px-2 text-sm hover:bg-primary-400 cursor-pointer">htmx</span>
+						<span class="text-white px-2 text-sm hover:bg-primary-400 cursor-pointer">templ</span>
+						<span id="tabSize" class="text-white px-2 text-sm hover:bg-primary-400 cursor-pointer">Tab Size: 4</span>
+						<span id="errorText" class="bg-error-base text-white px-2 text-sm">Errors</span>
+					</div>
 				</footer>
-			
 			</layout>
-			
 			<script lang="js">
 			     document.body.addEventListener('htmx:beforeSwap', function(evt) {
 			    if(evt.detail.xhr.status === 404){

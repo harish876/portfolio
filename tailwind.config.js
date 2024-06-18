@@ -12,9 +12,9 @@ module.exports = {
       extend: {
         colors:{
         primary: {...colors.blue , DEFAULT: colors.blue["500"]},
-        secondary: {...colors.green , DEFAULT: colors.green["400"]},
+        secondary: {...colors.emerald , DEFAULT: colors.emerald["700"]},
         terminal: {
-          base:"#202224",
+          base:" #171717",
           hover: colors.black
         },
         error:{
@@ -25,7 +25,8 @@ module.exports = {
     },
     plugins: [
       require('@tailwindcss/forms'),
-      // require('daisyui'),
+      require('daisyui'),
+      require('flowbite/plugin')
     ],
   }
   

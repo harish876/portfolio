@@ -3,13 +3,18 @@ package notfound
 import "github.com/harish876/portfolio/views/layout"
 
 templ notFound() {
-	<section class="dark">
-		Not Found
+	<section class="dark flex flex-col mx-auto my-auto items-center space-y-4">
+		<span>
+			Page Not Found
+		</span>
+		<button hx-post="/commands" hx-target="#commandDisplay" hx-swap="innerHTML transition:true" hx-on::after-request="this.reset()" class="text-white tracking-tight hover:text-primary-400">
+			(Back to Home)
+		</button>
 	</section>
 }
 
 templ NotFound() {
-	@layout.Base("Not Found"){
+	@layout.Base("Not Found") {
 		@notFound()
 	}
 }
