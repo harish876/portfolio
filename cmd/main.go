@@ -14,7 +14,7 @@ import (
 
 func main() {
 	if _, err := utils.GetEnv(); err != nil {
-		slog.Error("Unable to load .env file", err)
+		slog.Error("Unable to load .env file", "error", err)
 	}
 
 	app := echo.New()
