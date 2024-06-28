@@ -8,7 +8,7 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-// @get
+// @static(url="/about",page="about.html")
 func AboutHandler(c echo.Context) error {
 	return app.Render(c, http.StatusOK, about.About())
 }

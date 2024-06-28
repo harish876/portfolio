@@ -5,36 +5,41 @@ import (
 	"github.com/harish876/portfolio/models"
 )
 
-templ renderProjectRow(idx int,row models.Edge){
+templ renderProjectRow(idx int, row models.Edge) {
 	<div class="flex flex-col p-2 h-auto gap-2 hover:bg-terminal-hover hover:border-primary-400 hover:border-l-2">
-	<a href={templ.URL(row.Node.URL)} target="_blank" tabindex="0" number={strconv.Itoa(idx+1)} 
-		class="flex flex-row group flex items-center  active:border-primary-400  active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none [&>svg]:hover:block [&>svg]:active:text-gray-11">
-		<span>{strconv.Itoa(idx+1)}. {row.Node.Name}</span> 
-		<span class="text-gray-500 px-4">{row.Node.Description}</span>
-		<svg class="hidden w-5 h-5 ml-6 text-gray-10 shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="square-arrow-top-right, open, new, link, open link, box, arrow"><path class="stroke-current" d="M15.2083 11.6667V16.875H3.125V4.79167H7.70833M11.4583 3.125H16.875V8.54167M9.16667 10.8333L16.25 3.75" stroke-width="1.5" stroke-linecap="square"></path></g></svg>
-	</a>
-	// <div class="flex flex-row space-x-4 justify-end mr-8">
-	// for _,node := range row.Node.Languages.Edges{
-	// 	@renderLanguages(node)
-	// }
-	// </div>
+		<a
+			href={ templ.URL(row.Node.URL) }
+			target="_blank"
+			tabindex="0"
+			number={ strconv.Itoa(idx + 1) }
+			class="flex flex-row group flex items-center  active:border-primary-400  active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none [&>svg]:hover:block [&>svg]:active:text-gray-11"
+		>
+			<span>{ strconv.Itoa(idx+1) }. { row.Node.Name }</span>
+			<span class="text-gray-500 px-4">{ row.Node.Description }</span>
+			<svg class="hidden w-5 h-5 ml-6 text-gray-10 shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="square-arrow-top-right, open, new, link, open link, box, arrow"><path class="stroke-current" d="M15.2083 11.6667V16.875H3.125V4.79167H7.70833M11.4583 3.125H16.875V8.54167M9.16667 10.8333L16.25 3.75" stroke-width="1.5" stroke-linecap="square"></path></g></svg>
+		</a>
+		// <div class="flex flex-row space-x-4 justify-end mr-8">
+		// for _,node := range row.Node.Languages.Edges{
+		// 	@renderLanguages(node)
+		// }
+		// </div>
 	</div>
 }
 
-templ renderLanguages(data models.LanguageEdge){
-	<span class="text-xs">{data.Node.Name}</span>
-}	
+templ renderLanguages(data models.LanguageEdge) {
+	<span class="text-xs">{ data.Node.Name }</span>
+}
 
-templ Project(data *models.PinnedItems){
-    <div class="h-full flex-grow px-4">
-        <div class="group flex h-8 items-center active:border-primary-400  active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none">
+templ Project(data *models.PinnedItems) {
+	<div class="h-full flex-grow px-4">
+		<div class="group flex h-8 items-center active:border-primary-400  active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none">
 			<span class="text-xl font bold pb-8">Project</span>
 		</div>
-        <div class="text-white flex flex-col gap-2 my-auto h-full">
-			for idx,project := range data.Edges{
-				@renderProjectRow(idx,project)
+		<div class="text-white flex flex-col gap-2 my-auto h-full">
+			for idx,project := range data.Edges {
+				@renderProjectRow(idx, project)
 			}
 		</div>
-    </div>
+	</div>
 	<span id="currentText" hx-swap-oob="true" class="bg-secondary-500 text-white px-2 text-sm">project.txt</span>
 }

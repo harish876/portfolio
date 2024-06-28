@@ -6,9 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="Go/Echo+Templ: Some Exploration for GO HTMX and Templ" />
 	<meta name="google" content="notranslate" />
-	<link rel="shortcut icon" href="./img/templ.png" type="image/png" />
-	<link rel="stylesheet" href="../assets/css/styles.css" />
-	<link rel="stylesheet" href="../assets/css/static.css" />
+	<link rel="stylesheet" href="/css/styles.css" />
+	<link rel="stylesheet" href="/css/static.css" />
 	<link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
 	<title>Harish Gokul</title>
 	<script src="https://unpkg.com/htmx.org@1.9.9"
@@ -24,7 +23,7 @@
 	<script>
 		/* Script to toggle light and  mode */
 	</script>
-	<script type="module" src="../assets/js/launch.js"></script>
+	<script type="module" src="js/launch.js"></script>
 </head>
 
 <body hx-boost="true"
@@ -32,11 +31,11 @@
 	<layout id="layout" class="w-full h-screen flex flex-col">
 		<header class="bg-primary flex justify-between items-center py-1 px-4">
 			<div class="flex space-x-4">
-				<button hx-get="/public/home.html" hx-target="body" hx-swap="innerHTML transition:true"
+				<button hx-get="/" hx-target="body" hx-swap="innerHTML transition:true"
 					class="text-white font-bold tracking-tight btn btn-ghost btn-sm hover:bg-primary-400">
-					home
+					home (new)
 				</button>
-				<button hx-get="/public/about.html" hx-target="#commandDisplay" hx-swap="transition:true"
+				<button hx-get="/about" hx-target="#commandDisplay" hx-swap="transition:true"
 					class="text-white btn btn-ghost btn-sm hover:bg-primary-400">
 					readme
 				</button>

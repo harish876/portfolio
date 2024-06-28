@@ -2,5 +2,17 @@
   "appDir": "/home/harish/personal/portfolio/app",
   "module": "github.com/harish876/portfolio",
   "routesPath": "/home/harish/personal/portfolio/routes/routes.go",
-  "routing": true
+  "routing": true,
+  "staticFiles": [
+    {
+      "package": "about",
+      "component": "About",
+      "fileName": "public/about.html"
+    },
+    {
+      "package": "home",
+      "component": "Home",
+      "fileName": "public/home.html"
+    }
+  ]
 }
