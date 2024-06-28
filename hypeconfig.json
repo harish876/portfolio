@@ -1,7 +1,7 @@
 {
-  "appDir": "/home/harish/personal/portfolio/app",
+  "appDir": "/Users/harishgokul/portfolio/app",
   "module": "github.com/harish876/portfolio",
-  "routesPath": "/home/harish/personal/portfolio/routes/routes.go",
+  "routesDir": "/Users/harishgokul/portfolio/routes",
   "routing": true,
   "staticFiles": [
     {
