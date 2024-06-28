@@ -8,10 +8,9 @@ templ Base(title string) {
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			<meta
 				name="description"
-				content="Go/Echo+Templ: Some Exploration for GO HTMX and Templ"
+				content="Harish Portfolio"
 			/>
 			<meta name="google" content="notranslate"/>
-			<link rel="shortcut icon" href="/img/templ.png" type="image/png"/>
 			<link rel="stylesheet" href="/css/styles.css"/>
 			<link rel="stylesheet" href="/css/static.css"/>
 			<link rel="icon" type="image/x-icon" href="/img/favicon.ico"/>
@@ -19,10 +18,7 @@ templ Base(title string) {
 			<script src="https://unpkg.com/htmx.org@1.9.9" integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX" crossorigin="anonymous"></script>
 			<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 			<script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
-			<!-- Alpine.js -->
-			<!-- Alpine Plugins -->
 			<script defer src="https://unpkg.com/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
-			<!-- Alpine Core -->
 			<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 			<script>
                 /* Script to toggle light and  mode */
@@ -34,8 +30,7 @@ templ Base(title string) {
 			<layout id="layout" class="w-full h-screen flex flex-col">
 				<header class="bg-primary flex justify-between items-center py-1 px-4">
 					<div class="flex space-x-4">
-						//fix this home link
-						<button hx-post="/commands" hx-target="#commandDisplay" hx-swap="innerHTML transition:true" class="text-white font-bold tracking-tight btn btn-ghost btn-sm  hover:bg-primary-400 ">home</button>
+						<button hx-get="/" hx-target="body" hx-swap="innerHTML transition:true" class="text-white font-bold tracking-tight btn btn-ghost btn-sm  hover:bg-primary-400 ">home</button>
 						<button hx-get="/about" hx-target="#commandDisplay" hx-swap="transition:true" class="text-white btn btn-ghost btn-sm  hover:bg-primary-400">readme</button>
 						<button hx-get="/project" hx-indicator="#spinner" hx-target="#commandDisplay" hx-swap="transition:true" class="text-white btn btn-ghost btn-sm  hover:bg-primary-400">
 							projects
