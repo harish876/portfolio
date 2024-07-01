@@ -42,7 +42,7 @@ templ Base(title string) {
 						<a href="https://github.com/harish876" class="text-white btn btn-ghost btn-xs">Github</a>
 					</div>
 				</header>
-				<div id="commandDisplay" class="flex flex-col h-screen flex-grow mt-4 px-4 py-8">
+				<div id="commandDisplay" class="flex flex-col h-screen flex-grow px-4 py-8 text-xl">
 					{ children... }
 				</div>
 				<div
@@ -69,7 +69,7 @@ templ Base(title string) {
 				//Todo: refactor to a footer component
 				<footer class="bg-primary flex flex-row justify-between items-center">
 					<div class="flex flex-row space-x-4">
-						<span id="currentText" hx-swap-oob="true" class="bg-secondary-500 text-white px-2 text-sm">home.txt</span>
+						<span id="currentText" class="bg-secondary-500 text-white px-2 text-sm">home.txt</span>
 						<span id="spinner" class="loading loading-infinity loading-sm htmx-indicator"></span>
 					</div>
 					<div class="flex flex-row space-x-4">

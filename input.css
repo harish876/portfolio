@@ -58,3 +58,8 @@
         transform: rotate(360deg)
     }
 }
+
+@font-face {
+    font-family: "geist";
+    src: url("./assets/fonts/geist-mono-latin.otf");
+}

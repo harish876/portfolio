@@ -10,6 +10,9 @@ module.exports = {
     ],
     theme: {
       extend: {
+        fontFamily:{
+          "geist": ["geist"]
+        },
         colors:{
         primary: {...colors.blue , DEFAULT: colors.blue["500"]},
         secondary: {...colors.emerald , DEFAULT: colors.emerald["700"]},
