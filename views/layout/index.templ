@@ -28,11 +28,11 @@ templ Base(title string) {
 		</head>
 		<body hx-boost="true" class="dark:bg-terminal-base font-mono bg-terminal-base text-white leading-normal tracking-tighter">
 			<layout id="layout" class="w-full h-screen flex flex-col">
-				<header class="bg-primary flex justify-between items-center py-1 px-4">
+				<header class="dark:bg-terminal-base flex justify-between items-center py-1 px-4">
 					<div class="flex space-x-4">
-						<button hx-get="/" hx-target="body" hx-swap="innerHTML transition:true" class="text-white font-bold tracking-tight btn btn-ghost btn-sm  hover:bg-primary-400 ">home</button>
-						<button hx-get="/about" hx-target="#commandDisplay" hx-swap="transition:true" class="text-white btn btn-ghost btn-sm  hover:bg-primary-400">readme</button>
-						<button hx-get="/project" hx-indicator="#spinner" hx-target="#commandDisplay" hx-swap="transition:true" class="text-white btn btn-ghost btn-sm  hover:bg-primary-400">
+						<button hx-get="/" hx-target="body" hx-swap="innerHTML transition:true" class="text-white font-bold tracking-tight btn btn-ghost hover:bg-primary-400 ">home</button>
+						<button hx-get="/about" hx-target="#commandDisplay" hx-swap="transition:true" class="text-white btn btn-ghost  hover:bg-primary-400">readme</button>
+						<button hx-get="/project" hx-indicator="#spinner" hx-target="#commandDisplay" hx-swap="transition:true" class="text-white btn btn-ghost  hover:bg-primary-400">
 							projects
 						</button>
 						<button hx-get="/blog" hx-indicator="#spinner" hx-target="#commandDisplay" hx-swap="transition:true" class="text-white disabled">blog <span class="text-xs">(coming soon)</span></button>
@@ -67,14 +67,14 @@ templ Base(title string) {
 					</form>
 				</div>
 				//Todo: refactor to a footer component
-				<footer class="bg-primary flex flex-row justify-between items-center">
+				<footer class="bg-primary-500 flex flex-row justify-between items-center">
 					<div class="flex flex-row space-x-4">
 						<span id="currentText" class="bg-secondary-500 text-white px-2 text-sm">home.txt</span>
 						<span id="spinner" class="loading loading-infinity loading-sm htmx-indicator"></span>
 					</div>
 					<div class="flex flex-row space-x-4">
 						<span id="tabSize" class="text-white px-2 text-sm hover:bg-primary-400 cursor-pointer">Ln 81, Col 122</span>
-						<span class="text-white px-2 text-sm hover:bg-primary-400 cursor-pointer">htmx</span>
+						<span class="text-white px-2 text-sm hover:bg-primary-400 cursor-pointer tooltip" data-tip="htmx">htmx</span>
 						<span class="text-white px-2 text-sm hover:bg-primary-400 cursor-pointer">templ</span>
 						<span id="tabSize" class="text-white px-2 text-sm hover:bg-primary-400 cursor-pointer">Tab Size: 4</span>
 						<span id="errorText" class="bg-error-base text-white px-2 text-sm">Errors</span>

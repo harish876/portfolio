@@ -1,11 +1,11 @@
 package main
 
 import (
+    "github.com/harish876/portfolio/views/home"
     "context"
     "log"
     "os"
     "github.com/harish876/portfolio/views/about"
-    "github.com/harish876/portfolio/views/home"
 )
 
 //RUN THIS FILE TO REGENERATE THE STATIC PAGES
