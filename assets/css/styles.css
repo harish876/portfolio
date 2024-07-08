@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.4.3 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.4 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -703,6 +703,14 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
+* {
+  scrollbar-color: color-mix(in oklch, currentColor 35%, transparent) transparent;
+}
+
+*:hover {
+  scrollbar-color: color-mix(in oklch, currentColor 60%, transparent) transparent;
+}
+
 :root {
   color-scheme: light;
   --in: 72.06% 0.191 231.6;
@@ -1029,8 +1037,8 @@ input::placeholder,textarea::placeholder {
   padding: 0;
 }
 
-::-webkit-date-and-time-value {
-  min-height: 1.5em;
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background: none;
 }
 
 select:not([size]) {
@@ -1582,23 +1590,6 @@ body {
   margin-inline-end: -1rem;
 }
 
-.kbd {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--rounded-btn, 0.5rem);
-  border-width: 1px;
-  border-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-border-opacity)));
-  --tw-border-opacity: 0.2;
-  --tw-bg-opacity: 1;
-  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  border-bottom-width: 2px;
-  min-height: 2.2em;
-  min-width: 2.2em;
-}
-
 .link {
   cursor: pointer;
   text-decoration-line: underline;
@@ -1893,6 +1884,10 @@ body {
 
 .input::-webkit-date-and-time-value {
   text-align: inherit;
+}
+
+.join > :where(*:not(:first-child)):is(.btn) {
+  margin-inline-start: calc(var(--border-btn) * -1);
 }
 
 .link:focus {
@@ -2194,6 +2189,14 @@ body {
   bottom: var(--tooltip-offset);
 }
 
+.join.join-vertical > :where(*:not(:first-child)):is(.btn) {
+  margin-top: calc(var(--border-btn) * -1);
+}
+
+.join.join-horizontal > :where(*:not(:first-child)):is(.btn) {
+  margin-inline-start: calc(var(--border-btn) * -1);
+}
+
 .tooltip {
   position: relative;
   display: inline-block;
@@ -2227,6 +2230,7 @@ body {
 
 .tooltip:before {
   max-width: 20rem;
+  white-space: normal;
   border-radius: 0.25rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -2367,6 +2371,10 @@ body {
   width: 100%;
 }
 
+.w-screen {
+  width: 100vw;
+}
+
 .shrink-0 {
   flex-shrink: 0;
 }
@@ -2417,10 +2425,6 @@ body {
 
 .gap-4 {
   gap: 1rem;
-}
-
-.gap-12 {
-  gap: 3rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
@@ -2505,10 +2509,6 @@ body {
 
 .bg-transparent {
   background-color: transparent;
-}
-
-.bg-inherit {
-  background-color: inherit;
 }
 
 .stroke-current {

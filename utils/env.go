@@ -24,11 +24,10 @@ func GetEnv() (*Env, error) {
 		return envVars, nil
 	}
 	var s Env
-	err := envconfig.Process("", &s)
+  err := envconfig.Process("", &s)
 	if err != nil {
 		return nil, err
 	}
 	envVars = &s
 	return envVars, nil
-
 }

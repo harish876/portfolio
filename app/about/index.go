@@ -9,6 +9,7 @@ import (
 )
 
 // @static(url="/about",page="about.html")
+// @get
 func AboutHandler(c echo.Context) error {
 	return app.Render(c, http.StatusOK, about.About())
 }

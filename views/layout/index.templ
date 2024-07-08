@@ -26,9 +26,9 @@ templ Base(title string) {
 			// <script src="/js/confirm.js" defer></script>
 			<script type="module" src="/js/launch.js"></script>
 		</head>
-		<body hx-boost="true" class="dark:bg-terminal-base font-mono bg-terminal-base text-white leading-normal tracking-tighter">
-			<layout id="layout" class="w-full h-screen flex flex-col">
-				<header class="dark:bg-terminal-base flex justify-between items-center py-1 px-4">
+		<body hx-boost="true" class="dark:bg-terminal-base font-mono text-white leading-normal tracking-tighter">
+			<layout id="layout" class="w-screen bg-terminal-base h-screen flex flex-col">
+				<header class="bg-primary-500 flex justify-between items-center py-1">
 					<div class="flex space-x-4">
 						<button hx-get="/" hx-target="body" hx-swap="innerHTML transition:true" class="text-white font-bold tracking-tight btn btn-ghost hover:bg-primary-400 ">home</button>
 						<button hx-get="/about" hx-target="#commandDisplay" hx-swap="transition:true" class="text-white btn btn-ghost  hover:bg-primary-400">readme</button>
@@ -42,11 +42,11 @@ templ Base(title string) {
 						<a href="https://github.com/harish876" class="text-white btn btn-ghost btn-xs">Github</a>
 					</div>
 				</header>
-				<div id="commandDisplay" class="flex flex-col h-screen flex-grow px-4 py-8 text-xl">
+				<div id="commandDisplay" class="flex flex-col h-screen flex-grow px-4 py-8 text-xl bg-terminal-base">
 					{ children... }
 				</div>
 				<div
-					class="py-8 group flex h-8 items-center hover:bg-terminal-hover"
+					class="py-8 group flex h-8 items-center bg-terminal-base hover:bg-terminal-hover"
 				>
 					<div class="bg-primary-400 w-[2px] h-[30px] shrink-0 animate-blink"></div>
 					<form

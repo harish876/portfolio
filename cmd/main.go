@@ -23,8 +23,8 @@ func main() {
 		Level:     slog.LevelDebug,
 	}))
 	app.Static("/", "assets")
-
 	app.HTTPErrorHandler = handlers.NotFoundErrorHandler
 	routes.RegisterRoutes(app)
+	//added new lines
 	app.Logger.Fatal(app.Start(fmt.Sprintf(":%s", (os.Getenv("PORT")))))
 }

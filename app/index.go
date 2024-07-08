@@ -8,6 +8,7 @@ import (
 )
 
 // @static(url="/about",page="home.html")
+// @get
 func HomeHandler(c echo.Context) error {
 	return Render(c, http.StatusOK, home.Home())
 }
