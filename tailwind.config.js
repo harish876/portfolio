@@ -11,8 +11,9 @@ module.exports = {
     theme: {
       extend: {
         fontFamily:{
-          "geist": ["geist"]
-        },
+          "geist": ["geist"],
+          "nvim": ["JetBrainsMono","Nerd Font","Monospace"],
+        }, 
         colors:{
         primary: {DEFAULT: "#252434"},
         secondary: {...colors.emerald , DEFAULT: colors.emerald["700"]},
@@ -21,7 +22,7 @@ module.exports = {
           hover: "#252434"
         },
         error:{
-          base: "#F38BA8"
+          base: "#F18AA7"
         }
       }
       },

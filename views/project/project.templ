@@ -13,7 +13,7 @@ templ renderProjectRow(idx int, row models.Edge) {
 			tabindex="0"
 			number={ strconv.Itoa(idx + 1) }
 			class="flex flex-row group items-center active:border-primary-400 active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none [&>svg]:hover:block [&>svg]:active:text-gray-11"
-		>
+      >
 			<span>{ strconv.Itoa(idx+1) }. { row.Node.Name }</span>
 			<span class="px-4">{ row.Node.Description }</span>
 			<svg class="hidden w-5 h-5 ml-6 text-gray-10 shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="square-arrow-top-right, open, new, link, open link, box, arrow"><path class="stroke-current" d="M15.2083 11.6667V16.875H3.125V4.79167H7.70833M11.4583 3.125H16.875V8.54167M9.16667 10.8333L16.25 3.75" stroke-width="1.5" stroke-linecap="square"></path></g></svg>
@@ -41,5 +41,5 @@ templ Project(data *models.PinnedItems) {
 			}
 		</ul>
 	</div>
-	<span id="currentText" hx-swap-oob="true" class="bg-secondary-500 text-white px-2 text-md rounded-r-md">project.txt</span>
+	<span id="currentText" hx-swap-oob="true" class="bg-secondary-500 text-white px-2 text-lg rounded-r-md">project.txt</span>
 }
