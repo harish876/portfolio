@@ -119,7 +119,7 @@ func Help(commands []models.Commands) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</pre></div><span id=\"currentText\" hx-swap-oob=\"true\" class=\"bg-secondary-500 text-white px-2 text-sm\">help.txt</span>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</pre></div><span id=\"currentText\" hx-swap-oob=\"true\" class=\"bg-secondary-500 text-white px-2 text-md rounded-r-md\">help.txt</span>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -32,9 +32,11 @@ templ Base(title string) {
 						<button hx-get="/blog" hx-indicator="#spinner" hx-target="#commandDisplay" hx-swap="transition:true" class="text-white disabled">blog <span class="text-xs">(coming soon)</span></button>
 					</div>
 					<div class="flex items-center space-x-2">
-						<a href="https://www.linkedin.com/in/harish-gokul-39432718b/" class="text-white btn btn-ghost btn-xs">LinkedIn</a>
-						<a href="https://github.com/harish876" class="text-white btn btn-ghost btn-xs">Github</a>
-					</div>
+						<a href="https://www.linkedin.com/in/harish-gokul-39432718b/" class="text-white btn btn-ghost">LinkedIn</a>
+						<a href="https://github.com/harish876" class="text-white btn btn-ghost">Github</a>
+				   <a href=" https://app.codecrafters.io/users/harish876
+" class="text-white btn btn-ghost">Codecrafters</a>
+            </div>
 				</header>
 				<main id="commandDisplay" class="flex flex-col flex-grow mt-8 md:mt-4 px-4 py-8 text-lg bg-terminal-base">
 					{ children... }
@@ -45,17 +47,17 @@ templ Base(title string) {
 						<input name="command" id="commandBox" type="text" autocomplete="off" placeholder="$ enter command here" class="w-full px-4 border-none focus:ring-transparent text-white leading-tight bg-transparent"/>
 					</form>
 				</div>
-				<footer class="flex md:flex-row justify-between items-center">
+				<footer class="flex md:flex-row justify-between items-center p-4 rounded-lg">
 					<div class="flex md:flex-row sm:space-y-0 md:space-x-4">
-						<span id="currentText" class="bg-secondary-500 text-white px-2 text-sm">home.txt</span>
+						<span id="currentText" class="bg-secondary-500 text-white px-2 text-md rounded-r-md">home.txt</span>
 						<span id="spinner" class="loading loading-infinity loading-sm htmx-indicator"></span>
 					</div>
 					<div class="flex md:flex-row sm:space-y-0 md:space-x-4">
-						<span id="tabSize" class="text-white px-2 text-sm hover:bg-primary-400 cursor-pointer">Ln 81, Col 122</span>
-						<span class="hidden md:block text-white px-2 text-sm hover:bg-primary-400 cursor-pointer tooltip" data-tip="htmx">htmx</span>
-						<span class="hidden md:block text-white px-2 text-sm hover:bg-primary-400 cursor-pointer tooltip">templ</span>
+						<span id="tabSize" class="text-white px-2 text-md hover:bg-primary cursor-pointer">Ln 81, Col 122</span>
+						<span class="hidden md:block text-white px-2 text-md hover:bg-primary cursor-pointer tooltip" data-tip="htmx">htmx</span>
+						<span class="hidden md:block text-white px-2 text-md hover:bg-primary cursor-pointer tooltip">templ</span>
 						<span id="tabSize" class="hidden md:block text-white px-2 text-sm hover:bg-primary-400 cursor-pointer">Tab Size: 4</span>
-						<span id="errorText" class="bg-error-base text-white px-2 text-sm">Errors</span>
+						<span id="errorText" class="bg-error-base text-white px-2 text-md rounded-l-md">nvim</span>
 					</div>
 				</footer>
 			</div>
