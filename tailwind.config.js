@@ -14,14 +14,14 @@ module.exports = {
           "geist": ["geist"]
         },
         colors:{
-        primary: {...colors.blue , DEFAULT: colors.blue["500"]},
+        primary: {DEFAULT: "#252434"},
         secondary: {...colors.emerald , DEFAULT: colors.emerald["700"]},
         terminal: {
-          base:" #171717",
-          hover: colors.black
+          base:"#1e1d2d",
+          hover: "#252434"
         },
         error:{
-          base:colors.red["600"]
+          base: "#F38BA8"
         }
       }
       },
