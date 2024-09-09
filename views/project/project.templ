@@ -1,29 +1,25 @@
 package project
 
 import (
-	"strconv"
+	"github.com/harish876/portfolio/components/pagelabel"
 	"github.com/harish876/portfolio/models"
+  "github.com/harish876/portfolio/components/syntax"
+	"strconv"
 )
 
 templ renderProjectRow(idx int, row models.Edge) {
-	<li class="group flex p-6 h-auto items-center hover:bg-terminal-hover hover:border-primary-400 hover:border-l-2 active:border-primary-400 hover:text-white focus:text-white  active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none">
-		<a
-			href={ templ.URL(row.Node.URL) }
-			target="_blank"
-			tabindex="0"
-			number={ strconv.Itoa(idx + 1) }
-			class="flex flex-row group items-center active:border-primary-400 active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none [&>svg]:hover:block [&>svg]:active:text-gray-11"
-      >
+		@syntax.ComposableHyperlink("0","item1","1","option"){
+      @syntax.ListWithChildren("a"){
 			<span>{ strconv.Itoa(idx+1) }. { row.Node.Name }</span>
 			<span class="px-4">{ row.Node.Description }</span>
-			<svg class="hidden w-5 h-5 ml-6 text-gray-10 shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="square-arrow-top-right, open, new, link, open link, box, arrow"><path class="stroke-current" d="M15.2083 11.6667V16.875H3.125V4.79167H7.70833M11.4583 3.125H16.875V8.54167M9.16667 10.8333L16.25 3.75" stroke-width="1.5" stroke-linecap="square"></path></g></svg>
-		</a>
-		// <div class="flex flex-row space-x-4 justify-end mr-8">
-		// for _,node := range row.Node.Languages.Edges{
-		// 	@renderLanguages(node)
-		// }
-		// </div>
-	</li>
+//     	  <div class="flex flex-row space-x-4 justify-end mr-8">
+//		     for _,node := range row.Node.Languages.Edges{
+//	        @renderLanguages(node)
+//		     }
+//		    </div>
+      }
+    }
+
 }
 
 templ renderLanguages(data models.LanguageEdge) {
@@ -31,15 +27,20 @@ templ renderLanguages(data models.LanguageEdge) {
 }
 
 templ Project(data *models.PinnedItems) {
-	<div class="h-full flex px-4 flex-col flex-grow justify-center mx-auto">
-		<div class="group flex h-8 items-center active:border-primary-400  active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none">
-			<span class="text-4xl font bold pb-16 mx-auto">Projects</span>
-		</div>
-		<ul class="text-gray-500 flex flex-col gap-4 py-2 mx-auto">
-			for idx,project := range data.Edges {
-				@renderProjectRow(idx, project)
-			}
+	<div class="h-full flex px-4 flex-col flex-grow justify-center mt-8 mx-auto">
+		<div class="group flex w-full h-8 items-center justify-center active:border-primary-400  active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none">
+		  @syntax.Title("Projects")
+    </div>
+    @syntax.Function("projectComponent"){
+		<ul class="text-gray-500 flex flex-col gap-4 ml-8 py-2 pt-4 mx-auto">
+			@syntax.EnclosingTag("ul"){
+        for idx,project := range data.Edges {
+				  @renderProjectRow(idx, project)
+			  }
+      }
 		</ul>
-	</div>
-	<span id="currentText" hx-swap-oob="true" class="bg-secondary-500 text-white px-2 text-md rounded-r-md">project.txt</span>
+    }
+	@pagelabel.PageLabelWithSwap("project.txt")
+  </div>
+
 }

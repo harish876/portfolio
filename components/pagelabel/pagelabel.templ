@@ -1,0 +1,9 @@
+package pagelabel
+
+templ PageLabelWithSwap(label string) {
+	<span id="currentText" hx-swap-oob="true" class="bg-primary-accent text-white text-md rounded-r-md">{ label }</span>
+}
+
+templ PageLabel(label string) {
+	<span id="currentText" class="bg-primary-accent text-white text-md rounded-r-md">{ label }</span>
+}

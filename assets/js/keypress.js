@@ -30,21 +30,24 @@ export default class KeyPressController {
      */
     handleNavigation(event){
         let keyPressed = event.key;
-        this.pageNavTargetDiv = document.getElementById('currentText');
+        this.pageNavTargetDiv = document.getElementById('currentMode');
         console.log("Key Pressed" , event.key)
         
-        if(keyPressed == "Escape" && this.this.mode == "i"){
+        if(keyPressed == "Escape" && this.mode == "i"){
             this.mode = ""
             let commandBox = document.getElementById("commandBox")
             if(commandBox){
                 document.getElementById("commandBox").blur()
             }
+            this.pageNavTargetDiv.innerHTML = "normal"
+            this.pageNavTargetDiv.setAttribute("data-mode","normal")
             return
         }
     
         if(this.mode == "i"){
             console.log("In insert this.mode,press escape to exit")
-            this.pageNavTargetDiv.innerHTML = "insert mode"
+            this.pageNavTargetDiv.innerHTML = "insert"
+            this.pageNavTargetDiv.setAttribute("data-mode","insert")
             return
         }
     
@@ -55,7 +58,8 @@ export default class KeyPressController {
             if(commandBox){
                 document.getElementById("commandBox").focus()
             }
-            this.pageNavTargetDiv.innerHTML = "insert mode"
+            this.pageNavTargetDiv.innerHTML = "insert"
+            this.pageNavTargetDiv.setAttribute("data-mode","insert")
             console.log("Mode is: ",this.mode)
         }
     
@@ -85,6 +89,7 @@ export default class KeyPressController {
             
             case "Escape":
                 this.firstKey = ""
+                console.log("Escape here")
                 this.command = this.currentLocation
                 break
             
@@ -94,7 +99,7 @@ export default class KeyPressController {
                 break
 
             default: 
-                this.command += keyPressed
+                this.command += keyPressed  
                 break
         }
         this.pageNavTargetDiv.innerHTML = this.command

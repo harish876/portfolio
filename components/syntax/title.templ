@@ -1,0 +1,9 @@
+package syntax
+
+templ Title(title string) {
+	<span class="text-3xl font bold pb-16">
+		@OpenTag("title")
+		<span class="text-syntax-content">{ title }{ " " }</span>
+		@CloseTag("title")
+	</span>
+}

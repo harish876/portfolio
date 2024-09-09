@@ -63,3 +63,11 @@
     font-family: "geist";
     src: url("./assets/fonts/geist-mono-latin.otf");
 }
+
+
+[data-mode="normal"] {
+  @apply bg-secondary-normal;
+}
+[data-mode="insert"] {
+  @apply bg-secondary-insert;
+}

@@ -1,8 +1,9 @@
 package help
 
 import (
-	"strconv"
+	"github.com/harish876/portfolio/components/pagelabel"
 	"github.com/harish876/portfolio/models"
+	"strconv"
 )
 
 templ renderHelpRow(idx int, command models.Commands) {
@@ -23,5 +24,6 @@ templ Help(commands []models.Commands) {
 			}
 		</pre>
 	</div>
-	<span id="currentText" hx-swap-oob="true" class="bg-secondary-500 text-white px-2 text-md rounded-r-md">help.txt</span>
+	//<span id="currentText" hx-swap-oob="true" class="bg-secondary-500 text-white px-2 text-md rounded-r-md">help.txt</span>
+	@pagelabel.PageLabelWithSwap("help.txt")
 }

@@ -9,6 +9,7 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 import (
+	"github.com/harish876/portfolio/components/pagelabel"
 	"github.com/harish876/portfolio/models"
 	"strconv"
 )
@@ -38,7 +39,7 @@ func renderHelpRow(idx int, command models.Commands) templ.Component {
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(idx + 1))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/help/help.templ`, Line: 9, Col: 49}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/help/help.templ`, Line: 10, Col: 49}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
@@ -51,7 +52,7 @@ func renderHelpRow(idx int, command models.Commands) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(idx + 1))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/help/help.templ`, Line: 10, Col: 29}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/help/help.templ`, Line: 11, Col: 29}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
@@ -64,7 +65,7 @@ func renderHelpRow(idx int, command models.Commands) templ.Component {
 		var templ_7745c5c3_Var4 string
 		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(command.Command)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/help/help.templ`, Line: 10, Col: 50}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/help/help.templ`, Line: 11, Col: 50}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
@@ -77,7 +78,7 @@ func renderHelpRow(idx int, command models.Commands) templ.Component {
 		var templ_7745c5c3_Var5 string
 		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(command.Description)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/help/help.templ`, Line: 11, Col: 56}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/help/help.templ`, Line: 12, Col: 56}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 		if templ_7745c5c3_Err != nil {
@@ -119,7 +120,11 @@ func Help(commands []models.Commands) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</pre></div><span id=\"currentText\" hx-swap-oob=\"true\" class=\"bg-secondary-500 text-white px-2 text-md rounded-r-md\">help.txt</span>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</pre></div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = pagelabel.PageLabelWithSwap("help.txt").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

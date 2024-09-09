@@ -8,6 +8,9 @@ package layout
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
+import "github.com/harish876/portfolio/components/pagelabel"
+import "github.com/harish876/portfolio/components/svg"
+
 func Base(title string) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
@@ -33,13 +36,101 @@ func Base(title string) templ.Component {
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layout/index.templ`, Line: 14, Col: 17}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layout/index.templ`, Line: 17, Col: 17}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</title><script src=\"https://unpkg.com/htmx.org@1.9.9\" integrity=\"sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX\" crossorigin=\"anonymous\"></script><script src=\"https://cdn.jsdelivr.net/npm/sweetalert2@11\"></script><script src=\"https://unpkg.com/hyperscript.org@0.9.12\"></script><script defer src=\"https://unpkg.com/@alpinejs/focus@3.x.x/dist/cdn.min.js\"></script><script defer src=\"https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js\"></script><script>\n                /* Script to toggle light and dark mode */\n            </script><script type=\"module\" src=\"/js/launch.js\"></script></head><body hx-boost=\"true\" class=\"dark:bg-terminal-base font-nvim text-white leading-normal tracking-tighter\"><div id=\"layout\" class=\"w-full min-h-screen bg-terminal-base flex flex-col\"><header class=\"flex flex-row justify-between items-center p-4\"><div class=\"flex space-x-4\"><button hx-get=\"/\" hx-target=\"body\" hx-swap=\"innerHTML transition:true\" class=\"text-white font-bold tracking-tight btn btn-ghost hover:bg-primary-400\">home</button> <button hx-get=\"/about\" hx-target=\"#commandDisplay\" hx-swap=\"transition:true\" class=\"text-white btn btn-ghost hover:bg-primary-400\">readme</button> <button hx-get=\"/project\" hx-indicator=\"#spinner\" hx-target=\"#commandDisplay\" hx-swap=\"transition:true\" class=\"text-white btn btn-ghost hover:bg-primary-400\">projects</button> <button hx-get=\"/blog\" hx-indicator=\"#spinner\" hx-target=\"#commandDisplay\" hx-swap=\"transition:true\" class=\"text-white disabled\">blog <span class=\"text-xs\">(coming soon)</span></button></div><div class=\"flex items-center space-x-2\"><a href=\"https://www.linkedin.com/in/harish-gokul-39432718b/\" class=\"text-white btn btn-ghost\">LinkedIn</a> <a href=\"https://github.com/harish876\" class=\"text-white btn btn-ghost\">Github</a> <a href=\" https://app.codecrafters.io/users/harish876\n\" class=\"text-white btn btn-ghost\">Codecrafters</a></div></header><main id=\"commandDisplay\" class=\"flex flex-col flex-grow mt-8 md:mt-4 px-4 py-8 text-lg bg-terminal-base\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</title><script src=\"https://unpkg.com/htmx.org@1.9.9\" integrity=\"sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX\" crossorigin=\"anonymous\"></script><script src=\"https://cdn.jsdelivr.net/npm/sweetalert2@11\"></script><script src=\"https://unpkg.com/hyperscript.org@0.9.12\"></script><script defer src=\"https://unpkg.com/@alpinejs/focus@3.x.x/dist/cdn.min.js\"></script><script defer src=\"https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js\"></script><script>\n                /* Script to toggle light and dark mode */\n            </script><script type=\"module\" src=\"/js/launch.js\"></script></head><body hx-boost=\"true\" class=\"dark:bg-terminal-base font-nvim text-white leading-normal tracking-tighter\"><div id=\"layout\" class=\"w-full min-h-screen min-w-screen bg-terminal-base flex flex-col\"><header class=\"flex flex-row justify-between items-center px-4 bg-primary-accent\"><input id=\"my-drawer\" type=\"checkbox\" class=\"drawer-toggle\"><div class=\"drawer-content flex-none lg:hidden\"><label for=\"my-drawer\" aria-label=\"open sidebar\" class=\"btn btn-square btn-ghost drawer-button\"><svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" class=\"inline-block h-6 w-6 stroke-current\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M4 6h16M4 12h16M4 18h16\"></path></svg></label></div><div class=\"drawer-side\"><label for=\"my-drawer\" aria-label=\"close sidebar\" class=\"drawer-overlay\"></label><ul class=\"menu bg-primary-dark text-base-content min-h-full w-80 p-4\"><button hx-get=\"/\" hx-target=\"body\" hx-swap=\"innerHTML transition:true\" class=\"text-white font-bold tracking-tight btn btn-ghost hover:bg-primary\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = svg.Gopher().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("home</button> <button hx-get=\"/about\" hx-target=\"#commandDisplay\" hx-swap=\"transition:true\" class=\"text-white btn btn-ghost hover:bg-primary\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = svg.Vim().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("readme</button> <button hx-get=\"/project\" hx-indicator=\"#spinner\" hx-target=\"#commandDisplay\" hx-swap=\"transition:true\" class=\"text-white btn btn-ghost hover:bg-primary\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = svg.Apache().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("projects</button> <button hx-get=\"/blog\" hx-indicator=\"#spinner\" hx-target=\"#commandDisplay\" hx-swap=\"transition:true\" class=\"text-white btn btn-ghost hover:bg-primary disabled\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = svg.Emacs().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("blog  <span class=\"text-xs\">(coming soon)</span></button></ul></div><div class=\"hidden lg:flex lg:space-x-4\"><button hx-get=\"/\" hx-target=\"body\" hx-swap=\"innerHTML transition:true\" class=\"text-white font-bold tracking-tight btn btn-ghost hover:bg-primary\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = svg.Gopher().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("home</button> <button hx-get=\"/about\" hx-target=\"#commandDisplay\" hx-swap=\"transition:true\" class=\"text-white btn btn-ghost hover:bg-primary\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = svg.Vim().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("readme</button> <button hx-get=\"/project\" hx-indicator=\"#spinner\" hx-target=\"#commandDisplay\" hx-swap=\"transition:true\" class=\"text-white btn btn-ghost hover:bg-primary\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = svg.Apache().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("projects</button> <button hx-get=\"/blog\" hx-indicator=\"#spinner\" hx-target=\"#commandDisplay\" hx-swap=\"transition:true\" class=\"text-white btn btn-ghost hover:bg-primary disabled\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = svg.Emacs().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("blog  <span class=\"text-xs\">(coming soon)</span></button></div><span id=\"spinner\" class=\"loading loading-infinity loading-sm htmx-indicator\"></span><div class=\"flex items-center space-x-2\"><a href=\"https://www.linkedin.com/in/harish-gokul-39432718b/\" class=\"text-white btn btn-ghost hover:bg-primary\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = svg.LinkedIn().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("LinkedIn</a> <a href=\"https://github.com/harish876\" class=\"text-white btn btn-ghost hover:bg-primary\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = svg.GithubWhite().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("Github</a> <a href=\"https://app.codecrafters.io/users/harish876\" class=\"text-white btn btn-ghost hover:bg-primary\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = svg.Codecrafters().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("Codecrafters</a></div></header><main id=\"commandDisplay\" class=\"flex flex-col flex-grow mt-8 md:mt-4 px-4 py-8 text-lg bg-terminal-base\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -47,7 +138,15 @@ func Base(title string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</main><div class=\"py-4 flex items-center bg-terminal-base hover:bg-terminal-hover px-4\"><div class=\"bg-primary-400 w-[2px] h-[30px] shrink-0 animate-blink\"></div><form hx-post=\"/commands\" hx-indicator=\"#spinner\" hx-target=\"#commandDisplay\" hx-swap=\"innerHTML transition:true\" hx-on::after-request=\"this.reset()\" class=\"flex-grow\"><input name=\"command\" id=\"commandBox\" type=\"text\" autocomplete=\"off\" placeholder=\"$ enter command here\" class=\"w-full px-4 border-none focus:ring-transparent text-white leading-tight bg-transparent\"></form></div><footer class=\"flex md:flex-row justify-between items-center p-4 rounded-lg\"><div class=\"flex md:flex-row sm:space-y-0 md:space-x-4\"><span id=\"currentText\" class=\"bg-secondary-500 text-white px-2 text-md rounded-r-md\">home.txt</span> <span id=\"spinner\" class=\"loading loading-infinity loading-sm htmx-indicator\"></span></div><div class=\"flex md:flex-row sm:space-y-0 md:space-x-4\"><span id=\"tabSize\" class=\"text-white px-2 text-md hover:bg-primary cursor-pointer\">Ln 81, Col 122</span> <span class=\"hidden md:block text-white px-2 text-md hover:bg-primary cursor-pointer tooltip\" data-tip=\"htmx\">htmx</span> <span class=\"hidden md:block text-white px-2 text-md hover:bg-primary cursor-pointer tooltip\">templ</span> <span id=\"tabSize\" class=\"hidden md:block text-white px-2 text-md hover:bg-primary-400 cursor-pointer\">Tab Size: 4</span> <span id=\"errorText\" class=\"bg-error-base text-white px-2 text-md rounded-l-md\">nvim</span></div></footer></div><script lang=\"js\">\n\t\t\t     document.body.addEventListener('htmx:beforeSwap', function(evt) {\n\t\t\t        if(evt.detail.xhr.status === 404){\n\t\t\t            alert(\"Error: Could Not Find Resource\");\n\t\t\t        } else if(evt.detail.xhr.status === 422){\n\t\t\t            alert(\"Bad Request Debug\")\n\t\t\t            evt.detail.shouldSwap = true;\n\t\t\t            evt.detail.isError = false;\n\t\t\t        } else if(evt.detail.xhr.status === 418){\n\t\t\t            evt.detail.shouldSwap = true;\n\t\t\t            evt.detail.target = htmx.find(\"#teapot\");\n\t\t\t        }\n\t\t\t    });\n\t\t\t</script></body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</main><div class=\"py-4 flex items-center bg-terminal-base hover:bg-terminal-hover px-4\"><div class=\"bg-primary-400 w-[2px] h-[30px] shrink-0 animate-blink\"></div><form hx-post=\"/commands\" hx-indicator=\"#spinner\" hx-target=\"#commandDisplay\" hx-swap=\"innerHTML transition:true\" hx-on::after-request=\"this.reset()\" class=\"flex-grow\"><input name=\"command\" id=\"commandBox\" type=\"text\" autocomplete=\"off\" placeholder=\"$ enter command here\" class=\"w-full px-4 border-none focus:ring-transparent text-white leading-tight bg-transparent\"></form></div><footer class=\"flex md:flex-row justify-between items-center mb-4 rounded-lg bg-primary-accent\"><div class=\"flex md:flex-row sm:space-y-0 md:space-x-4\"><span id=\"currentMode\" class=\"bg-secondary-normal text-primary uppercase font-bold px-2 text-md\" data-mode=\"1\">NORMAL</span>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = pagelabel.PageLabel("home.txt").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<span hidden id=\"currentModeEnum\" value=\"1\"></span> <span id=\"spinner\" class=\"loading loading-infinity loading-sm htmx-indicator\"></span></div><div class=\"flex md:flex-row sm:space-y-0 md:space-x-4 bg-primary-accent\"><span id=\"tabSize\" class=\"text-white px-2 text-md hover:bg-primary cursor-pointer\">Ln 81, Col 122</span> <span class=\"hidden md:block text-white px-2 text-md hover:bg-primary cursor-pointer tooltip\" data-tip=\"htmx\">htmx</span> <span class=\"hidden md:block text-white px-2 text-md hover:bg-primary cursor-pointer tooltip\">templ</span> <span id=\"tabSize\" class=\"hidden md:block text-white px-2 text-md hover:bg-primary-400 cursor-pointer\">Tab Size: 4</span> <span id=\"errorText\" class=\"text-primary font-bold bg-error-base px-2 text-md rounded-l-md\">nvim</span></div></footer></div><script lang=\"js\">\n\t\t\t     document.body.addEventListener('htmx:beforeSwap', function(evt) {\n\t\t\t        if(evt.detail.xhr.status === 404){\n\t\t\t            alert(\"Error: Could Not Find Resource\");\n\t\t\t        } else if(evt.detail.xhr.status === 422){\n\t\t\t            alert(\"Bad Request Debug\")\n\t\t\t            evt.detail.shouldSwap = true;\n\t\t\t            evt.detail.isError = false;\n\t\t\t        } else if(evt.detail.xhr.status === 418){\n\t\t\t            evt.detail.shouldSwap = true;\n\t\t\t            evt.detail.target = htmx.find(\"#teapot\");\n\t\t\t        }\n\t\t\t    });\n\t\t\t</script></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

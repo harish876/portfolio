@@ -1,0 +1,45 @@
+package syntax 
+
+templ OpenTag(tagName string) {
+	<span class="text-syntax-content">
+		&lt;<span class="text-syntax-tag">{ tagName }</span>{ children... }
+		&gt 
+	</span>
+}
+
+templ CloseTag(tagName string) {
+	<span class="text-syntax-content">
+		&lt;/<span class="text-syntax-tag">{ tagName }</span>&gt; 
+	</span>
+}
+
+templ StyleAttribute(className string) {
+	<span class="text-syntax-content">{ " " }class</span>
+	<span class="text-white">=</span>
+	<span class="text-syntax-class">"{ className }"</span>
+}
+
+templ Function(functionName string) {
+	<div id="function">
+		<span class="text-syntax-templ">
+			templ
+			<span class="text-syntax-function">
+				{ functionName }
+				<span class="text-syntax-content">()</span>
+				<span class="text-syntax-content">&#123;</span>
+			</span>
+		</span>
+		<div id="function-children" class="mb-4">
+			{ children... }
+		</div>
+		<span class="text-syntax-content mt-4">&#125;</span>
+	</div>
+}
+
+templ EnclosingTag(tagName string) {
+	<div class="pl-4">
+		@OpenTag(tagName)
+		{ children... }
+		@CloseTag(tagName)
+	</div>
+}

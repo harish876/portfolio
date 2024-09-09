@@ -1,0 +1,65 @@
+package syntax
+
+//todo make composable
+
+templ List(content string, args... string){
+  {{
+    var tagName string
+    if len(args) > 0 {
+        tagName = args[0]   
+    } else {
+        tagName = "li"
+    }
+  }}
+  <span class="px-4">
+      @OpenTag(tagName){@StyleAttribute("list-element")}
+      <span class="text-syntax-content ml-2">{content}</span>@CloseTag(tagName)
+  </span>
+}
+
+
+templ ListWithChildren(tagName string,args... string){
+  {{
+    var tagName string
+    if len(args) > 0 {
+        tagName = args[0]   
+    } else {
+        tagName = "li"
+    }
+  }}
+  <span class="px-4">
+      @OpenTag(tagName){@StyleAttribute("list-element")}
+      <span class="text-syntax-content ml-2">{children...}</span>@CloseTag(tagName)
+  </span>
+}
+templ ComposableList(tabIdx string, id string, number string, role string, args... string){
+   {{
+      var className string
+      if len(args) > 0 {
+         className = args[0]
+      } else {
+        className = "group flex p-6 h-auto items-center hover:bg-terminal-hover hover:border-primary-400 hover:border-l-2 active:border-primary-400 hover:text-white focus:text-white  active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none"
+      }
+   }}
+  <li tabindex={tabIdx} id={id} number={number} role={role} class={className}>
+      <span>
+			  {children...}
+      </span>
+  </li>
+}
+
+templ ComposableHyperlink(tabIdx string,id string,number string, role string, args... string){
+
+   {{
+      var className string
+      if len(args) > 0 {
+         className = args[0]
+      } else {
+        className ="group flex h-auto p-6 items-center hover:bg-terminal-hover hover:text-white focus:text-white hover:border-primary-400 hover:border-l-2 active:border-primary-400  active:border-l-2 active:pl-[22px] active:text-gray-11 active:bg-gray-6 focus:border-primary-400 focus:border-l-2 focus:pl-[22px] focus:text-gray-11 focus:bg-gray-6 focus:outline-none has-[:focus]:border-orange has-[:focus]:border-l-2 has-[:focus]:pl-[22px] has-[:focus]:text-gray-11 has-[:focus]:bg-gray-6 has-[:focus]:outline-none [&>svg]:hover:block [&>svg]:active:text-gray-11" 
+      }
+   }}       
+   <a href="https://github.com/harish876/hypefx" target="_blank" id={id} tabindex={tabIdx} number={number} role={role} class={className}>
+        {children...}
+        <svg class="hidden w-5 h-5 ml-6 text-gray-10 shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="square-arrow-top-right, open, new, link, open link, box, arrow"><path class="stroke-current" d="M15.2083 11.6667V16.875H3.125V4.79167H7.70833M11.4583 3.125H16.875V8.54167M9.16667 10.8333L16.25 3.75" stroke-width="1.5" stroke-linecap="square"></path></g>
+        </svg>	
+</a>}
