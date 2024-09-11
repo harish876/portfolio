@@ -108,7 +108,7 @@ func renderProjectRow(idx int, row models.Edge) templ.Component {
 			}
 			return templ_7745c5c3_Err
 		})
-		templ_7745c5c3_Err = syntax.ComposableHyperlink("0", "item1", "1", "option").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = syntax.ComposableHyperlink("0", "item1", "1", "option", templ.SafeURL(row.Node.URL)).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

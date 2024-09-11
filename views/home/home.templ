@@ -26,7 +26,7 @@ templ HomeComponent() {
 					@syntax.ComposableList("0", "item4", "4", "option") {
 						@syntax.List(`4. use "help" to list out all options`)
 					}
-					@syntax.ComposableHyperlink("0", "item5", "5", "option") {
+					@syntax.ComposableHyperlink("0", "item5", "5", "option",templ.SafeURL("https://github.com/harish876/hypefx")) {
 						@syntax.List(`5.this was project was built using my custom framework for building web apps in go and htmx. (Click to go to the repo)`, "a")
 					}
 				}

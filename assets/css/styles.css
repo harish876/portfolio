@@ -2892,14 +2892,14 @@ html:has(.drawer-toggle:checked) {
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
-.bg-primary {
-  --tw-bg-opacity: 1;
-  background-color: rgb(37 36 52 / var(--tw-bg-opacity));
-}
-
 .bg-primary-accent {
   --tw-bg-opacity: 1;
   background-color: rgb(45 44 60 / var(--tw-bg-opacity));
+}
+
+.bg-primary-dark {
+  --tw-bg-opacity: 1;
+  background-color: rgb(25 24 40 / var(--tw-bg-opacity));
 }
 
 .bg-secondary-500 {
@@ -2919,11 +2919,6 @@ html:has(.drawer-toggle:checked) {
 
 .bg-transparent {
   background-color: transparent;
-}
-
-.bg-primary-dark {
-  --tw-bg-opacity: 1;
-  background-color: rgb(25 24 40 / var(--tw-bg-opacity));
 }
 
 .stroke-current {
@@ -2969,10 +2964,6 @@ html:has(.drawer-toggle:checked) {
 
 .pl-4 {
   padding-left: 1rem;
-}
-
-.pt-16 {
-  padding-top: 4rem;
 }
 
 .pt-4 {

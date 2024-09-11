@@ -8,7 +8,7 @@ import (
 )
 
 templ renderProjectRow(idx int, row models.Edge) {
-		@syntax.ComposableHyperlink("0","item1","1","option"){
+		@syntax.ComposableHyperlink("0","item1","1","option",templ.SafeURL(row.Node.URL)){
       @syntax.ListWithChildren("a"){
 			<span>{ strconv.Itoa(idx+1) }. { row.Node.Name }</span>
 			<span class="px-4">{ row.Node.Description }</span>
